@@ -108,7 +108,23 @@
                             /*  +++++++++++++++ BEGIN IMAGE PROCESSING +++++++++++++++ */
                             /*  ++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
                             /* PUT ANY CHANGES TO THE JAVASCRIPT HERE  */
-                             
+                            
+                            var imageData = context.getImageData(0,0,img.naturalWidth,img.naturalHeight);
+                            context.putImageData(imageData, img.natralWidth, 0);
+                            
+                            /*var data = imageData.data;
+                            
+                            var red = data[0];
+                            var green = data[1];
+                            var blue = data[2];
+                            for(var a = 0; a < img.naturalWidth; a++)
+                            {
+                                for(var b = 0; b < img.naturalHeight; b++)
+                                {
+                                    data[]
+                                }
+                            }*/
+                         
                         } // end of img.onload
                                 
                         img.src = reader.result;
