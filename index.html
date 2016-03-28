@@ -111,9 +111,15 @@
                             
                             var imageData = context.getImageData(0,0,img.naturalWidth,img.naturalHeight);
                             var correctedData = imageData;
-                            correctedData[0] = 0;
-                            correctedData[1] = 0;
-                            context.putImageData(correctedData, 600, 0);
+                            for(a = 0; a < imageData.data.length; a+ = 4)
+                            {
+                                imageData.data[a] = 0;
+                                imageData.data[a+1] = 0;
+                                imageData.data[a+2] = imageData.data[a+2];
+                                imageData.data[a+3] = 225;
+                                
+                            }
+                            context.putImageData(imageData, 600, 0);
                             
                             /*var data = imageData.data;
                             
