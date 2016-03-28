@@ -110,7 +110,10 @@
                             /* PUT ANY CHANGES TO THE JAVASCRIPT HERE  */
                             
                             var imageData = context.getImageData(0,0,img.naturalWidth,img.naturalHeight);
-                            context.putImageData(imageData, 600, 0);
+                            var correctedData = imageData;
+                            correctedData[0] = 0;
+                            correctedData[1] = 0;
+                            context.putImageData(correctedData, 600, 0);
                             
                             /*var data = imageData.data;
                             
