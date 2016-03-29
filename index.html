@@ -1,34 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<!-- The following code has been developed by students and/or researchers of the Freshman Research Initiative, DIY Diagnostics Stream at The University of Texas at Austin.  This code is shared for demonstration purposes and should not be considered a product -- it is for entertainment purposes only.  Any user of this code does so at their own risk. Members of the DIY Stream, FRI, and The University of Texas system are not liable for anything related to this code.
- 
-  THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION.
- 
-  Further Information:
-  http://cns.utexas.edu/fri
- 
-  Research Educator:
-  Timothy E. Riedel
-  triedel@utexas.edu
- 
-  Authors in chronological order of contribution:
-  Author 1: Timothy E. Riedel
-  Author 2: Kevin Valdez
-  
-  References:
-  http://docs.webplatform.org/wiki/concepts/programming/drawing_images_onto_canvas#Loading_the_image_programmatically
-  http://www.html5rocks.com/en/tutorials/file/dndfiles/
-  http://www.w3.org/TR/FileAPI/
-  http://mobilehtml5.org/
-  http://stackoverflow.com/questions/11929099/html5-canvas-drawimage-ratio-bug-ios
-  
-  Brief Description of Goal of Code:
-  blah, blah, blah,
- 
-  Known Issues:
-  blah, blah, blah, blah
--->
+    <!-- The following code has been developed by students and/or researchers of the Freshman Research Initiative, DIY Diagnostics Stream at The University of Texas at Austin.  This code is shared for demonstration purposes and should not be considered a product -- it is for entertainment purposes only.  Any user of this code does so at their own risk. Members of the DIY Stream, FRI, and The University of Texas system are not liable for anything related to this code.
+
+    THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION.
+
+    Further Information:
+    http://cns.utexas.edu/fri
+
+    Research Educator:
+    Timothy E. Riedel
+    triedel@utexas.edu
+
+    Authors in chronological order of contribution:
+    Author 1: Timothy E. Riedel
+    Author 2: Kevin Valdez
+
+    References:
+    http://docs.webplatform.org/wiki/concepts/programming/drawing_images_onto_canvas#Loading_the_image_programmatically
+    http://www.html5rocks.com/en/tutorials/file/dndfiles/
+    http://www.w3.org/TR/FileAPI/
+    http://mobilehtml5.org/
+    http://stackoverflow.com/questions/11929099/html5-canvas-drawimage-ratio-bug-ios
+
+    Brief Description of Goal of Code:
+    The goal of the code is to allow an app to accept a photo (WHich it will display) and then remove all the green and red aspects of the photo and display the corrected image.
+    
+    Known Issues:
+    No known issues at the moment (3/29/16)
+    -->
 
 <head>
     <meta charset="utf-8">
@@ -109,16 +109,17 @@
                             /*  ++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
                             /* PUT ANY CHANGES TO THE JAVASCRIPT HERE  */
                             
-                            var imageData = context.getImageData(0,0,600,500);
-                            var correctedData = imageData;
+                            var imageData = context.getImageData(0,0,600,500); //Gets the image data from the first canvas
+                            var correctedData = imageData; //Creates a temporary variable to save the imageData values
+                            //Use of the following for loop allows the image to be combed through and removes all the red and green aspects of the image while leaving the blue and full opacity
                             for(var a = 0; a < imageData.data.length; a = a + 4)
                             {
-                                imageData.data[a] = 0;
-                                imageData.data[a+1] = 0;
-                                imageData.data[a+2] = imageData.data[a+2];
-                                imageData.data[a+3] = 255;
+                                imageData.data[a] = 0; //Sets all red aspects to 0
+                                imageData.data[a+1] = 0; // Sets all GReen aspects to 0
+                                imageData.data[a+2] = imageData.data[a+2]; //Leaves the Blue aspect as normal
+                                imageData.data[a+3] = 255; //Leaves the Opacity at full opacity
                             }
-                            context2.putImageData(imageData, 0, 0);
+                            context2.putImageData(imageData, 0, 0); //Draws the corrected blue image onto the second canvas
                             
                             /*var data = imageData.data;
                             
@@ -177,6 +178,7 @@
                 context.fillStyle = "black";
                 context.fillText("Original image will go here", 10, 20);
                 
+                //Initiates the second canvas that will hold the corrected canvas with the id 'resultCanvas'
                 var canvas2 = document.getElementById('resultCanvas');
                 var context2 = canvas2.getContext("2d");
                 context2.font = '20pt Calibri';
