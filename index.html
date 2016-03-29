@@ -33,7 +33,7 @@
 <head>
     <meta charset="utf-8">
     <title>Photo Transform</title>
-    <meta name="viewport" content="width= 2 * device-width, initial-scale=.7">
+    <meta name="viewport" content="width=device-width, initial-scale=.7">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <link rel="stylesheet" href="https://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css" />
     <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
@@ -168,6 +168,7 @@
             <div id="messageDisplayArea"></div>
               
             <canvas id="myCanvas" width=1200 height=500 style="border:1px solid #d3d3d3;"></canvas>
+            <canvas id="resultCanvas" width=600 height=500 style="border:1px solid #d3d3d3;"></canvas>
             
             <script> /* This script initiates the cavas and puts the text on the canvas "myCanvas" */
                 var canvas = document.getElementById('myCanvas');
@@ -175,6 +176,12 @@
                 context.font = '20pt Calibri';
                 context.fillStyle = "black";
                 context.fillText("Original image will go here", 10, 20);
+                
+                var canvas2 = document.getElementById('resultCanvas');
+                var context2 = canvas2.getContext("2d");
+                context2.font = '20pt Calibri';
+                context2.fillStyle = "black";
+                context2.fillText("Blue fixed image will go here", 10, 20);
             </script>
         </div><!-- /content -->
         
