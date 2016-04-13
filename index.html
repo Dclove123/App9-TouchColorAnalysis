@@ -78,6 +78,15 @@
             var vertSquashRatio = detectVerticalSquash(img);
             ctx.drawImage(img, sx, sy, sw, sh, dx, dy, dw, dh / vertSquashRatio);
         }
+        
+        function doTouchStart(event)
+        {
+            event.preventDefault();
+            
+            canvas_x = event.targetTouches[0].pageX;
+            canvas_y = event.targetTouches[0].pageY;
+            alert("X = " + canvas_x + "Y = " + canvas_y);
+        }
 
         /* window.onload necessary to keep javascripts from running before the app gets a chance to load entirely. */
         window.onload = function() 
@@ -173,6 +182,7 @@
             
             <script> /* This script initiates the cavas and puts the text on the canvas "myCanvas" */
                 var canvas = document.getElementById('myCanvas');
+                canvas.addEventListener("touchstart",doTouchStart,false);
                 var context = canvas.getContext("2d");
                 context.font = '20pt Calibri';
                 context.fillStyle = "black";
