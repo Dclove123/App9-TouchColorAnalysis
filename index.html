@@ -81,8 +81,8 @@
         
         function doTouchStart(event)
         {
-        	if(image)
-        	{
+        	//if(image)
+        	//{
             event.preventDefault();
             
             canvas_x = event.targetTouches[0].pageX;
@@ -94,7 +94,7 @@
 			a_context.setLineDash([15,5]); //Dashes the border of the rectangle
 			a_context.strokeRect(canvas_x - 50, canvas_y - 50, 100, 100); //Creates a rectangle size of 100, 100 around the spot where the user touches
 			console.log("A rectangle should have appeared"); //Console log that tells the operator whether or no the function should have performed its action
-        	}
+        	//}
         }
         function imageDisplay(event)
         {
