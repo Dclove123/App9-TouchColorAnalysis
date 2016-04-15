@@ -94,33 +94,7 @@
 			console.log("A rectangle should have appeared"); //Console log that tells the operator whether or no the function should have performed its action
         }
         
-		(function() 
-		{
-			var canvas = document.getElementById("myCanvas"),
-            var context = canvas.getContext("2d");
-            
-			// resize the canvas to fill browser window dynamically
-			window.addEventListener("resize", resizeCanvas, false);
-			
-			function resizeCanvas() 
-			{
-				canvas.width = window.innerWidth;
-				canvas.height = window.innerHeight;
-
-            	/**
-             	* Your drawings need to be inside this function otherwise they will be reset when 
-             	* you resize the browser window and the canvas goes will be cleared.
-             	*/
-             	drawStuff(); 
-			}
-			resizeCanvas();
-			
-			function drawStuff() 
-			{
-            // do your drawing stuff here
-			}
-			
-		})();
+		
 
         /* window.onload necessary to keep javascripts from running before the app gets a chance to load entirely. */
         window.onload = function() 
@@ -202,6 +176,29 @@
             <canvas id="myCanvas" style="border:1px solid #d3d3d3;"></canvas>
             
             <script> /* This script initiates the cavas and puts the text on the canvas "myCanvas" */
+            
+            	(function() 
+				{
+					var canvas = document.getElementById("myCanvas"),
+		            var context = canvas.getContext("2d");
+		            
+					// resize the canvas to fill browser window dynamically
+					window.addEventListener("resize", resizeCanvas, false);
+					
+					function resizeCanvas() 
+					{
+						canvas.width = window.innerWidth;
+						canvas.height = window.innerHeight;
+						drawStuff(); 
+					}
+					resizeCanvas();
+					
+					function drawStuff() 
+					{
+		            // do your drawing stuff here
+					}
+				
+				})();
                 var canvas = document.getElementById('myCanvas');
                 canvas.addEventListener("touchstart",doTouchStart,false);
                 var context = canvas.getContext("2d");
