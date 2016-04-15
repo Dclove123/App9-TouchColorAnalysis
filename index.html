@@ -81,6 +81,8 @@
         
         function doTouchStart(event)
         {
+        	if(image)
+        	{
             event.preventDefault();
             
             canvas_x = event.targetTouches[0].pageX;
@@ -92,8 +94,12 @@
 			a_context.setLineDash([15,5]); //Dashes the border of the rectangle
 			a_context.strokeRect(canvas_x - 50, canvas_y - 50, 100, 100); //Creates a rectangle size of 100, 100 around the spot where the user touches
 			console.log("A rectangle should have appeared"); //Console log that tells the operator whether or no the function should have performed its action
+        	}
         }
-        
+        function imageDisplay(event)
+        {
+        	
+        }
 		
 
         /* window.onload necessary to keep javascripts from running before the app gets a chance to load entirely. */
@@ -126,18 +132,6 @@
                             /*  +++++++++++++++ BEGIN IMAGE PROCESSING +++++++++++++++ */
                             /*  ++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
                             /* PUT ANY CHANGES TO THE JAVASCRIPT HERE  */
-                            
-                            var imageData = context.getImageData(0,0,600,500); //Gets the image data from the first canvas
-                            var correctedData = imageData; //Creates a temporary variable to save the imageData values
-                            //Use of the following for loop allows the image to be combed through and removes all the red and green aspects of the image while leaving the blue and full opacity
-                            for(var a = 0; a < imageData.data.length; a = a + 4)
-                            {
-                                imageData.data[a] = 0; //Sets all red aspects to 0
-                                imageData.data[a+1] = 0; // Sets all GReen aspects to 0
-                                imageData.data[a+2] = imageData.data[a+2]; //Leaves the Blue aspect as normal
-                                imageData.data[a+3] = 255; //Leaves the Opacity at full opacity
-                            }
-                            context2.putImageData(imageData, 0, 0); //Draws the corrected blue image onto the second canvas
                          
                         } // end of img.onload
                                 
@@ -200,16 +194,18 @@
 						context_b.strokeStyle = "#3399ff"; //sets line color to light blue
 						context_b.setLineDash([15,5]); //Dashes the border of the rectangle
 						context_b.strokeRect(30,30, window.innerWidth - 60, window.innerHeight - 60);
+						context_b.font = '40pt Calibri';
+						context_b.fillStyle = "#3399ff";
+						context_b.textAlign = "center";
+						context_b.fillText("Click to add a photo", window.innerWidth / 2, window.innerHeight / 2);
 					}
 				
 				})();
                 var canvas = document.getElementById('myCanvas');
                 canvas.addEventListener("touchstart",doTouchStart,false);
+                canvas.addEventListener("touchstart",displayImage,false);
                 var context = canvas.getContext("2d");
-                context.font = '40pt Calibri';
-                context.fillStyle = "#3399ff";
-                context.textAlign = "center";
-                context.fillText("Click to add a photo", window.innerWidth / 2, window.innerHeight / 2);
+                
             </script>
         </div><!-- /content -->
         
