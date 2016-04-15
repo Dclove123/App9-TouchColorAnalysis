@@ -88,15 +88,44 @@
             //alert("X = " + canvas_x + "Y = " + canvas_y);
             var a_canvas = document.getElementById("myCanvas");
 			var a_context = a_canvas.getContext("2d");
-			a_context.strokeStyle = "#3399ff";
-			a_context.setLineDash([15,5]);
-			a_context.strokeRect(canvas_x -15 - 50, canvas_y - 200 - 50, 100, 100);
+			a_context.strokeStyle = "#3399ff"; //sets line color to light blue
+			a_context.setLineDash([15,5]); //Dashes the border of the rectangle
+			a_context.strokeRect(canvas_x -15 - 50, canvas_y - 200 - 50, 100, 100); //Creates a rectangle size of 100, 100 around the spot where the user touches
 			console.log("A rectangle should have appeared"); //Console log that tells the operator whether or no the function should have performed its action
         }
+        
+		(function() 
+		{
+			var canvas = document.getElementById('myCanvas'),
+            context = canvas.getContext('2d');
+            
+			// resize the canvas to fill browser window dynamically
+			window.addEventListener('resize', resizeCanvas, false);
+			
+			function resizeCanvas() 
+			{
+				canvas.width = window.innerWidth;
+				canvas.height = window.innerHeight;
+
+            	/**
+             	* Your drawings need to be inside this function otherwise they will be reset when 
+             	* you resize the browser window and the canvas goes will be cleared.
+             	*/
+             	drawStuff(); 
+			}
+			resizeCanvas();
+			
+			function drawStuff() 
+			{
+            // do your drawing stuff here
+			}
+			
+		})();
 
         /* window.onload necessary to keep javascripts from running before the app gets a chance to load entirely. */
         window.onload = function() 
         {
+			
             var fileInput = document.getElementById('fileInput');
             var messageDisplayArea = document.getElementById('messageDisplayArea');
             /* fileInput.addEventListener looks for any change in the <input> tag indicating that the user has selected a file (picture). */
@@ -135,19 +164,6 @@
                                 imageData.data[a+3] = 255; //Leaves the Opacity at full opacity
                             }
                             context2.putImageData(imageData, 0, 0); //Draws the corrected blue image onto the second canvas
-                            
-                            /*var data = imageData.data;
-                            
-                            var red = data[0];
-                            var green = data[1];
-                            var blue = data[2];
-                            for(var a = 0; a < img.naturalWidth; a++)
-                            {
-                                for(var b = 0; b < img.naturalHeight; b++)
-                                {
-                                    data[]
-                                }
-                            }*/
                          
                         } // end of img.onload
                                 
@@ -183,8 +199,7 @@
             
             <div id="messageDisplayArea"></div>
               
-            <canvas id="myCanvas" width=600 height=500 style="border:1px solid #d3d3d3;"></canvas>
-            <canvas id="resultCanvas" width=600 height=500 style="border:1px solid #d3d3d3;"></canvas>
+            <canvas id="myCanvas" style="border:1px solid #d3d3d3;"></canvas>
             
             <script> /* This script initiates the cavas and puts the text on the canvas "myCanvas" */
                 var canvas = document.getElementById('myCanvas');
@@ -193,13 +208,6 @@
                 context.font = '20pt Calibri';
                 context.fillStyle = "black";
                 context.fillText("Original image will go here", 10, 20);
-                
-                //Initiates the second canvas that will hold the corrected canvas with the id 'resultCanvas'
-                var canvas2 = document.getElementById('resultCanvas');
-                var context2 = canvas2.getContext("2d");
-                context2.font = '20pt Calibri';
-                context2.fillStyle = "black";
-                context2.fillText("Blue fixed image will go here", 10, 20);
             </script>
         </div><!-- /content -->
         
