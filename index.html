@@ -206,9 +206,10 @@
                 var canvas = document.getElementById('myCanvas');
                 canvas.addEventListener("touchstart",doTouchStart,false);
                 var context = canvas.getContext("2d");
-                context.font = '20pt Calibri';
-                context.fillStyle = "black";
-                context.fillText("Original image will go here", 10, 20);
+                context.font = '40pt Calibri';
+                context.fillStyle = "#3399ff";
+                context.textAlign = "center";
+                context.fillText("Click to add a photo", window.innerWidth / 2, window.innerHeight / 2);
             </script>
         </div><!-- /content -->
         
