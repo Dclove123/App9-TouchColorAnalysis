@@ -151,7 +151,7 @@
 </head>
 
 <body>
-    <div data-role="page">
+    <div data-role="page" id = "openPage">
         <!--
         <div data-role="header">
         <h1>Primary Colors</h1>
@@ -165,6 +165,7 @@
                 <input type="file" id="fileInput" STYLE="background-color: #FF6600;">
             </div>
         -->
+        <div data-role="content">
             <div id="messageDisplayArea"></div> 
               
             <canvas id="myCanvas" style="border:1px solid #d3d3d3;"></canvas>
@@ -208,10 +209,15 @@
             </script>
         </div><!-- /content -->
         
-        <div data-role="footer" data-position="fixed">
-            <p>DIY Diagnostics</p>
-        </div><!-- /footer -->
-        
     </div><!-- /page -->
+    
+    <div data-role="page" id = "selectPage">
+		<div data-role="content">
+			<div id="messageDisplayArea"></div>
+			<script>
+			
+			</script>
+		</div><!--/content-->
+    </div>
 </body>
 </html>
