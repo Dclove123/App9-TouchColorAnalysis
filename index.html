@@ -127,7 +127,7 @@
                         img.onload = function() 
                         {
                             /*This finally draws the image onto the first drawing canvas. The specific canvas is referred to by "context". This is established down in the HTML part of the file just under the first <canvas> tag. If we weren't worried about fixing an iPhone bug we would use context.drawImage(image, 0, 0, img.naturalWidth, img.naturalHeight, 0, 0, 600, 500) instead of drawImageIOSFix */
-                            drawImageIOSFix(context,img, 0, 0, img.naturalWidth, img.naturalHeight, 0, 0, 600, 500);
+                            drawImageIOSFix(context,img, 0, 0, img.naturalWidth, img.naturalHeight, 0, 0, window.innerWidth, window.innerHeight);
                             
                             /*  +++++++++++++++ BEGIN IMAGE PROCESSING +++++++++++++++ */
                             /*  ++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
@@ -155,7 +155,10 @@
 		<div data-role="content">
 			<p>Do you think you will work and not screw up?</p>
 			<a href="#openPage" onclick="Something" data-role="button">Who knows, let's see!</a>
-			<input type ="file" id="uploadImage" STYLE = "background-color: #3399ff;">
+			<input type ="file" id="fileInput" STYLE = "background-color: #3399ff;">
+			<canvas id="reviewCanvas" width=600 height=500 style="border:1px solid #d3d3d3;"></canvas>
+			var canvas_a = document.getElementById('reviewCanvas');
+			var context_a = canvas_a.getContext("2d");
 		</div>
 	</div>
     <div data-role="page" id = "openPage">
@@ -172,8 +175,8 @@
                 <input type="file" id="fileInput" STYLE="background-color: #FF6600;">
             </div>
         -->
-        <!--<div data-role="content">-->
-            <!-- <div id="messageDisplayArea"></div> -->
+        <div data-role="content">
+            <div id="messageDisplayArea"></div>
               
             <canvas id="myCanvas" style="border:1px solid #d3d3d3;"></canvas>
             
