@@ -106,6 +106,10 @@
         	{
         		var imgData = a_context.getImageData(0,0,600,500);
         	}
+        	else
+        	{
+        		oneTime = false;
+        	}
             event.preventDefault();
             
             canvas_x = event.targetTouches[0].pageX;
