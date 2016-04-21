@@ -105,10 +105,12 @@
         	if(oneTime)
         	{
         		var imgData = a_context.getImageData(0,0,600,500);
+        		alert("Copied context!")
         	}
         	else
         	{
         		oneTime = false;
+        		alert("Context already copied!")
         	}
             event.preventDefault();
             
