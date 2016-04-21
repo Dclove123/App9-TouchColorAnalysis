@@ -179,7 +179,7 @@
                 <input type="file" id="fileInput" STYLE="background-color: #FF6600;">
             </div>
         -->
-        <div data-role="content">
+        <!--<div data-role="content">-->
             <!--<div id="messageDisplayArea"></div>-->
               
             <canvas id="myCanvas" style="border:1px solid #d3d3d3;"></canvas>
@@ -216,12 +216,12 @@
 				
 				})();
 				//drawImageIOSFix(context,img, 0, 0, img.naturalWidth, img.naturalHeight, 0, 0, window.innerWidth, window.innerHeight);
-                //var canvas = document.getElementById('myCanvas');
-                //var context = canvas.getContext("2d");
-                canvas_b.addEventListener("touchstart",doTouchStart,false);
+                var canvas = document.getElementById('myCanvas');
+                var context = canvas.getContext("2d");
+                canvas.addEventListener("touchstart",doTouchStart,false);
                 //canvas.addEventListener("touchstart",displayImage,false);
             </script>
-        </div><!-- /content -->
+        <!--</div>--><!-- /content -->
         
     </div><!-- /page -->
     
