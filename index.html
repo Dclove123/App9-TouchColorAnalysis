@@ -184,12 +184,12 @@
               
             <canvas id="myCanvas" style="border:1px solid #d3d3d3;"></canvas>
             
-            <script> /* This script initiates the cavas and puts the text on the canvas "myCanvas" */
+            <script> /* This script initiates the canvas and puts the text on the canvas "myCanvas" */
             
             	(function() 
 				{
-					var canvas = document.getElementById('myCanvas');
-		            var context_b = canvas.getContext("2d");
+					var canvas_b = document.getElementById('myCanvas');
+		            var context_b = canvas_b.getContext("2d");
 		            
 					// resize the canvas to fill browser window dynamically
 					window.addEventListener("resize", resizeCanvas, false);
@@ -197,8 +197,8 @@
 					function resizeCanvas() 
 					{
 						//alert("Width = " + window.innerWidth + "Height = " + window.innerHeight);
-						canvas.width = window.innerWidth;
-						canvas.height = window.innerHeight;
+						canvas_b.width = window.innerWidth;
+						canvas_b.height = window.innerHeight;
 						drawStuff(); 
 					}
 					resizeCanvas();
@@ -216,11 +216,10 @@
 				
 				})();
 				//drawImageIOSFix(context,img, 0, 0, img.naturalWidth, img.naturalHeight, 0, 0, window.innerWidth, window.innerHeight);
-                var canvas = document.getElementById('myCanvas');
-                canvas.addEventListener("touchstart",doTouchStart,false);
+                //var canvas = document.getElementById('myCanvas');
+                //var context = canvas.getContext("2d");
+                canvas_b.addEventListener("touchstart",doTouchStart,false);
                 //canvas.addEventListener("touchstart",displayImage,false);
-                var context = canvas.getContext("2d");
-                
             </script>
         </div><!-- /content -->
         
