@@ -180,6 +180,7 @@
 			<script>
 				var canvas_a = document.getElementById('reviewCanvas');
 				var context_a = canvas_a.getContext("2d");
+				var imgData = context_a.getImageData(0,0,600,500);
                 canvas_a.addEventListener("touchstart",doTouchStartTemp,false);
 			</script>
 			
@@ -223,7 +224,7 @@
 				//drawImageIOSFix(context,img, 0, 0, img.naturalWidth, img.naturalHeight, 0, 0, window.innerWidth, window.innerHeight);
                 var canvas = document.getElementById('myCanvas');
                 var context = canvas.getContext("2d");
-                var imgData = context.getImageData(0,0,window.innerWidth,window.innerHeight)
+                
                 canvas.addEventListener("touchstart",doTouchStart,false);
                 //canvas.addEventListener("touchstart",displayImage,false);
             </script>
