@@ -118,7 +118,7 @@
             canvas_y = event.targetTouches[0].pageY;
             //alert("X = " + canvas_x + "Y = " + canvas_y);
             
-			a_context.drawImage(imgData,0,0);
+			a_context.putImageData(imgData,0,0);
 			a_context.strokeStyle = "#3399ff"; //sets line color to light blue
 			a_context.setLineDash([15,5]); //Dashes the border of the rectangle
 			a_context.strokeRect(canvas_x - 50, canvas_y - 50, 100, 100); //Creates a rectangle size of 100, 100 around the spot where the user touches
