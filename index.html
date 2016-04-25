@@ -104,12 +104,13 @@
 			var a_context = a_canvas.getContext("2d");
         	if(oneTime)
         	{
-        		var imgData = a_context.getImageData(600,500,0,0);
+        		var imgData = a_context.getImageData(0,0,600,500);
         		alert("Copied context!")
         	}
         	else
         	{
         		oneTime = false;
+        		a_context.putImageData(imgData,0,0);
         		alert("Context already copied!")
         	}
             event.preventDefault();
@@ -118,7 +119,7 @@
             canvas_y = event.targetTouches[0].pageY;
             //alert("X = " + canvas_x + "Y = " + canvas_y);
             
-			a_context.putImageData(imgData,0,0);
+			
 			a_context.strokeStyle = "#3399ff"; //sets line color to light blue
 			a_context.setLineDash([15,5]); //Dashes the border of the rectangle
 			a_context.strokeRect(canvas_x - 50, canvas_y - 50, 100, 100); //Creates a rectangle size of 100, 100 around the spot where the user touches
