@@ -184,7 +184,7 @@
         
         function imageDisplay()
         {
-        	alert("Image width = " + img.naturalWidth + " Image height = " + img.naturalHeight);
+        	//alert("Image width = " + img.naturalWidth + " Image height = " + img.naturalHeight);
         	drawImageIOSFix(context_b,img, 0, 0, img.naturalWidth, img.naturalHeight, 0, 0, window.innerWidth, window.innerHeight);
         }
     </script>
@@ -212,18 +212,18 @@
             
             <script> /* This script initiates the canvas and puts the text on the canvas "myCanvas" */
             
-				window.onload = (function() 
+				(function() 
 				{
 					var canvas_b = document.getElementById('myCanvas');
 					var context_b = canvas_b.getContext("2d");
-					alert("I am doing stuff #1")
+					//alert("I am doing stuff #1")
 					
 					// resize the canvas to fill browser window dynamically
 					window.addEventListener("resize", resizeCanvas, false);
 					
 					function resizeCanvas() 
 					{
-						alert("Width = " + window.innerWidth + "Height = " + window.innerHeight);
+						//alert("Width = " + window.innerWidth + "Height = " + window.innerHeight);
 						canvas_b.width = window.innerWidth;
 						canvas_b.height = window.innerHeight;
 					}
