@@ -50,7 +50,7 @@
         //detectVerticalSquash & drawImageIOSFix = are functions that are critical due to a flaw in the iPhone camera software that squishes any photos displayed on an HTML5 canvas element. https://github.com/stomita/ios-imagefile-megapixel
         function detectVerticalSquash(img) 
         {
-            var iw = img.naturalWidth, ih = img.naturalHeight;
+            var iw = img.getWidth, ih = img.getHeight;
             var canvas = document.createElement('canvas');
             canvas.width = 1;
             canvas.height = ih;
@@ -185,7 +185,7 @@
         
         function imageDisplay()
         {
-        	drawImageIOSFix(context,img, 0, 0, img.naturalWidth, img.naturalHeight, 0, 0, window.innerWidth, window.innerHeight);
+        	drawImageIOSFix(context,img, 0, 0, img.getWidth, img.getHeight, 0, 0, window.innerWidth, window.innerHeight);
         }
     </script>
 </head>
