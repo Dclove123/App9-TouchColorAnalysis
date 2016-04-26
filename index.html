@@ -220,7 +220,6 @@
 					//alert("I am doing stuff #1")
 					
 					// resize the canvas to fill browser window dynamically
-					drawStuff();
 					window.addEventListener("resize", resizeCanvas, false);
 					
 					function resizeCanvas() 
@@ -242,7 +241,7 @@
 						context_b.fillStyle = "#3399ff";
 						context_b.textAlign = "center";
 						context_b.fillText("Click to add a photo", window.innerWidth / 2, window.innerHeight / 2);
-						imageDisplay();
+						//imageDisplay();
 					}
 				
 				})();
