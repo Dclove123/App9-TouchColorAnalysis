@@ -179,7 +179,6 @@
             }); // end of the fileInput.addEventListener function
         } // end of the window.onload function
         
-        window.onload = imageDisplay;
         function imageDisplay()
         {
         	drawImageIOSFix(context,tempimg, 0, 0, tempimg.naturalWidth, tempimg.naturalHeight, 0, 0, window.innerWidth, window.innerHeight);
@@ -240,7 +239,6 @@
 				})();
                 var canvas = document.getElementById('myCanvas');
                 var context = canvas.getContext("2d");
-                imageDisplay();
                 canvas.addEventListener("touchstart",doTouchStart,false);
                 //canvas.addEventListener("touchstart",displayImage,false);
             </script>
