@@ -38,8 +38,7 @@
     <link rel="stylesheet" href="https://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css" />
     <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
     <script src="https://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
-    <img id="EmoLlama" src="https://pbs.twimg.com/profile_images/555149877534269440/lgMEpzGz.jpeg" alt="Llama" width="100" height="100"> <!--Allows for the functions to call on the image aat the site inculded-->
-
+    <!--<img id="EmoLlama" src="https://pbs.twimg.com/profile_images/555149877534269440/lgMEpzGz.jpeg" alt="Llama" width="100" height="100"> <!--Allows for the functions to call on the image aat the site inculded-->
     <script>
         var docMod = document.lastModified; // gets last modified date and time of the index.html file
         console.log("This file last modified  " + docMod); // displays last modified date and time in the javascipt browser console 
@@ -185,7 +184,7 @@
         
         function imageDisplay()
         {
-        	drawImageIOSFix(context,tempimg, 0, 0, img.getWidth, img.getHeight, 0, 0, window.innerWidth, window.innerHeight);
+        	drawImageIOSFix(context_b,img, 0, 0, img.naturalWidth, img.naturalHeight, 0, 0, window.innerWidth, window.innerHeight);
         }
     </script>
 </head>
