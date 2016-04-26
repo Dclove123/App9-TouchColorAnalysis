@@ -222,7 +222,7 @@
 					
 					function resizeCanvas() 
 					{
-						//alert("Width = " + window.innerWidth + "Height = " + window.innerHeight);
+						alert("Width = " + window.innerWidth + "Height = " + window.innerHeight);
 						canvas_b.width = window.innerWidth;
 						canvas_b.height = window.innerHeight;
 					}
@@ -230,6 +230,7 @@
 					
 					function drawStuff() 
 					{
+						alert("I am doing stuff #2")
 						context_b.strokeStyle = "#3399ff"; //sets line color to light blue
 						context_b.setLineDash([15,5]); //Dashes the border of the rectangle
 						context_b.strokeRect(30,30, window.innerWidth - 60, window.innerHeight - 60);
